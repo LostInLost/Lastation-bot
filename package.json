@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "npm install",
+    "start": "node src/index.js"
+  },
   "dependencies": {
     "discord.js": "^14.11.0",
     "dotenv": "^16.3.1"
