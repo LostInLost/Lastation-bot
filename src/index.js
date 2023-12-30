@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 config()
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
 // When the client is ready, run this code (only once)
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
@@ -60,7 +60,6 @@ for (const file of eventFiles) {
     client.on(event.name, (...args) => event.execute(...args));
   }
 }
-
 
 // Log in to Discord with your client's token
 client.login(process.env.TOKEN);
