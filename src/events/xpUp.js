@@ -41,10 +41,9 @@ module.exports = {
 
     const xpUp = dataLevel.xp + 20 * dataLevel.level;
     if (dataLevel.nextLevel <= xpUp) {
-      const oldLevel = dataLevel.level;
       dataLevel.level += 1;
       dataLevel.nextLevel = dataLevel.nextLevel * 2;
-      dataLevel.xp = xpUp - oldLevel;
+      dataLevel.xp = xpUp;
       await interaction.reply(`Level Up! you reached level ${dataLevel.level}`);
     } else {
       dataLevel.xp = xpUp;
