@@ -48,7 +48,7 @@ module.exports = {
       await interaction.reply(`Level Up! you reached level ${dataLevel.level}`);
     }
 
-    dataLevel.xp += 20;
+    dataLevel.xp += xpUp;
 
     await prisma.user.update({
       where: {
