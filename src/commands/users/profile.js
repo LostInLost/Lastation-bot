@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const { prisma } = require('../../../lib/ORMPrisma');
+const { prisma } = require('../../lib/ORMPrisma');
 
 module.exports = {
   data: new SlashCommandBuilder().setName('myprofile').setDescription('Check your profile game'),

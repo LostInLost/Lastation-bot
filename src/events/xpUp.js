@@ -1,5 +1,5 @@
 const { Events } = require('discord.js');
-const { prisma } = require('../../lib/ORMPrisma');
+const { prisma } = require('../lib/ORMPrisma');
 
 module.exports = {
   name: Events.MessageCreate,
@@ -39,13 +39,13 @@ module.exports = {
       nextLevel: checkUser?.nextLevel ?? 100,
     };
 
-    const xpUp = dataLevel.xp + 20;
+    const xpUp = dataLevel.xp + (20 * dataLevel.level);
     if (dataLevel.nextLevel <= xpUp) {
       const oldLevel = dataLevel.nextLevel;
       dataLevel.level += 1;
       dataLevel.nextLevel = oldLevel * dataLevel.level;
       dataLevel.xp = xpUp - oldLevel;
-      await interaction.reply(`Leveled Up! you reached level ${dataLevel.level}`);
+      await interaction.reply(`Level Up! you reached level ${dataLevel.level}`);
     }
 
     dataLevel.xp += 20;

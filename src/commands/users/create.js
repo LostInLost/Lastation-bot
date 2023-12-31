@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { prisma } = require('../../../lib/ORMPrisma');
+const { prisma } = require('../../lib/ORMPrisma');
 
 module.exports = {
   data: new SlashCommandBuilder().setName('create').setDescription('Create your User to join this Game'),
