@@ -60,6 +60,8 @@ for (const file of eventFiles) {
     client.on(event.name, (...args) => event.execute(...args));
   }
 }
-
 // Log in to Discord with your client's token
 client.login(process.env.TOKEN);
+// client.on('interactionCreate', (cts) => {
+//   cts.is
+// })
