@@ -4,6 +4,7 @@ module.exports = {
   data: new SlashCommandBuilder().setName('getpict').setDescription('Just Generate Random Pict Anime'),
   async execute(interaction) {
     let image_url;
+    await interaction.deferReply();
     await fetch('https://api.nekosapi.com/v3/images/random?limit=1&rating=safe', {
       method: 'GET',
     })
@@ -17,9 +18,6 @@ module.exports = {
       });
 
     const exampleEmbed = new EmbedBuilder().setImage(image_url).setColor('#00BFFF');
-
-    await interaction.deferReply();
-    await wait(1000);
     await interaction.editReply({ embeds: [exampleEmbed] });
   },
 };

@@ -5,6 +5,7 @@ module.exports = {
   name: Events.MessageCreate,
   async execute(interaction) {
     if (interaction.author.bot) return;
+    if (interaction.content.length < 5) return;
     let user = null;
     let dataLevel;
     const checkUser = await prisma.level.findFirst({
